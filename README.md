@@ -30,24 +30,12 @@ This package was implemented to help import `SVG` icons in `react` projects.
 
 ## Usage
 
-Create a `react-icons` folder on your `shared/modules`, and export icons from there.
-
 ```js
-// shared/modules/react-icons/index.js
-
 import React, { forwardRef } from 'react';
 import Icon from '@moxy/react-icon';
 
 const arrowLeftSvg = import(/* webpackChunkName: "svg-sprite" */ '../media/arrow-left.inline.svg');
 const ArrowLeftIcon = forwardRef((props, ref) => <Icon ref={ ref } { ...props } svg={ arrowLeftSvg } />);
-
-export { ArrowLeftIcon };
-```
-
-Then, just import the recently created icons wherever you need.
-
-```js
-import { ArrowLeftIcon } from '../shared/modules/react-icons';
 
 const MyComponent = ({ children }) => (
     <div>
