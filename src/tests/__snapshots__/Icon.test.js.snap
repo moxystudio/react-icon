@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Icon should render correctly 1`] = `
+<DocumentFragment>
+  <svg
+    class="react-svg react-icon"
+    height="100"
+    width="100"
+  >
+     
+                
+    <circle
+      cx="50"
+      cy="50"
+      r="40"
+      stroke="black"
+      stroke-width="3"
+    />
+    
+            
+  </svg>
+</DocumentFragment>
+`;

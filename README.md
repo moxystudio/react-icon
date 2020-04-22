@@ -1,15 +1,113 @@
-# react-lib-template
-A template that aims to make the implementation of `React` component packages easier and more methodic.
+# react-icon
+
+[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][build-status-image]][build-status-url] [![Coverage Status][codecov-image]][codecov-url] [![Dependency status][david-dm-image]][david-dm-url] [![Dev Dependency status][david-dm-dev-image]][david-dm-dev-url]
+
+[npm-url]:https://npmjs.org/package/@moxy/react-icon
+[downloads-image]:https://img.shields.io/npm/dm/@moxy/react-icon.svg
+[npm-image]:https://img.shields.io/npm/v/@moxy/react-icon.svg
+[build-status-url]:https://github.com/moxystudio/react-icon/actions
+[build-status-image]:https://img.shields.io/github/workflow/status/moxystudio/react-icon/Node%20CI/master
+[codecov-url]:https://codecov.io/gh/moxystudio/react-icon
+[codecov-image]:https://img.shields.io/codecov/c/github/moxystudio/react-icon/master.svg
+[david-dm-url]:https://david-dm.org/moxystudio/react-icon
+[david-dm-image]:https://img.shields.io/david/moxystudio/react-icon.svg
+[david-dm-dev-url]:https://david-dm.org/moxystudio/react-icon?type=dev
+[david-dm-dev-image]:https://img.shields.io/david/dev/moxystudio/react-icon.svg
+
+A component that renders the contents of an Icon.
+
+## Installation
+
+```sh
+$ npm install @moxy/react-icon
+```
+
+This library is written in modern JavaScript and is published in both CommonJS and ES module transpiled variants. If you target older browsers please make sure to transpile accordingly.
+
+## Motivation
+
+This package was implemented to help implement an `SVG` icon on your projects.
 
 ## Usage
 
-This repo serves as the template for the creation of MOXY's base `React` components. To use this, just select `@moxystudio/react-lib-template` as the template when creating a new repo for your new package, and you're all set to start working.
+Create an `icons` folder on your `shared/modules`, and export icons from there.
 
-This template already includes a `src` folder, with 2 dummy files ready for you to start your work. `NewComponent` is a dummy component, available for demonstration purposes. Just rename `NewComponent.js` and change it according to your needs. An `index.js` for exporting is available as well. Do not forget to update the unit tests and try to reach as much coverage as possible.
+```js
+// shared/modules/icons/index.js
 
-In order to help make proper use of this template, here's a quick checklist with some crucial stuff to have in mind:
+import React, { forwardRef } from 'react';
+import Icon from '@moxy/react-icon';
 
-- Remember to change `package.json` name, description, keywords, etc.
-- Review the dependencies, removing the unnecessary ones.
-- Just to stress this out again: add unit tests and check for a good coverage. The closest to 100%, the better.
-- Make sure to update the `README`, documenting the features of your component as best as possible.
+const arrowLeftSvg = import(/* webpackChunkName: "svg-sprite" */ '../media/arrow-left.inline.svg');
+const ArrowLeftIcon = forwardRef((props, ref) => <Icon ref={ ref } { ...props } svg={ arrowLeftSvg } />);
+
+export { ArrowLeftIcon };
+
+export default Icon;
+```
+
+Then, just import the recently created icons wherever you need.
+
+```js
+import { ArrowLeftIcon } from '../..//shared/modules';
+
+// (...)
+
+render() {
+    <div>
+        <ArrowLeftIcon className={ styles.arrowLeft } />
+    </div>
+}
+```
+
+Also, don't forget to export the icons on your `shared/modules/index.js`. Just add this line:
+
+```js
+export * from './icons';
+```
+
+## API
+
+These are the props available in `@moxy/react-icon`.
+
+#### svg
+
+Type: `string` or `object` | Required: `true`
+
+The contents of the `SVG` that should be rendered. 
+In the case of the prop being an object, it must be the `Promise` that gets the contents of the `SVG`.
+
+#### className
+
+Type: `string` | Required: `false`
+
+A className to apply to the component.
+
+
+## Tests
+
+```sh
+$ npm test
+$ npm test -- --watch # during development
+```
+
+## Demo
+
+A demo [Next.js](https://nextjs.org/) project is available in the [`/demo`](./demo) folder so you can try out this component.
+
+First, build the `{react-icon}` project with:
+
+```sh
+$ npm run build
+```
+
+To run the demo, do the following inside the demo's folder:
+
+```sh
+$ npm i
+$ npm run dev
+```
+
+## License
+
+Released under the [MIT License](./LICENSE).
