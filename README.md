@@ -30,7 +30,7 @@ This package was implemented to help import `SVG` icons in `react` projects.
 
 ## Usage
 
-Create an `react-icons` folder on your `shared/modules`, and export icons from there.
+Create a `react-icons` folder on your `shared/modules`, and export icons from there.
 
 ```js
 // shared/modules/react-icons/index.js
