@@ -57,12 +57,6 @@ const MyComponent = ({ children }) => (
 );
 ```
 
-Also, don't forget to export the icons on your `shared/modules/index.js`. Just add this line:
-
-```js
-export * from './icons';
-```
-
 ## API
 
 These are the props available in `@moxy/react-icon`.
