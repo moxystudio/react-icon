@@ -1,7 +1,7 @@
 {
   "name": "@moxy/react-icon",
   "version": "0.0.0",
-  "description": "A template that aims to make the implementation of React component packages easier and more methodic.",
+  "description": "A component to render svg icons.",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
@@ -13,7 +13,8 @@
   "author": "Rui Monteiro <rui.monteiro@moxy.studio>",
   "license": "MIT",
   "keywords": [
-    "template"
+    "icon",
+    "svg"
   ],
   "repository": {
     "type": "git",

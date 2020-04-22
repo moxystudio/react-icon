@@ -10,5 +10,3 @@ const TwitterIcon = forwardRef((props, ref) => <Icon ref={ ref } { ...props } sv
 export {
     TwitterIcon,
 };
-
-export default Icon;

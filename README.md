@@ -14,7 +14,7 @@
 [david-dm-dev-url]:https://david-dm.org/moxystudio/react-icon?type=dev
 [david-dm-dev-image]:https://img.shields.io/david/dev/moxystudio/react-icon.svg
 
-A component that renders the contents of an Icon.
+A component to render `SVG` icons.
 
 ## Installation
 
@@ -26,14 +26,14 @@ This library is written in modern JavaScript and is published in both CommonJS a
 
 ## Motivation
 
-This package was implemented to help implement an `SVG` icon on your projects.
+This package was implemented to help import `SVG` icons in `react` projects.
 
 ## Usage
 
-Create an `icons` folder on your `shared/modules`, and export icons from there.
+Create an `react-icons` folder on your `shared/modules`, and export icons from there.
 
 ```js
-// shared/modules/icons/index.js
+// shared/modules/react-icons/index.js
 
 import React, { forwardRef } from 'react';
 import Icon from '@moxy/react-icon';
@@ -42,22 +42,19 @@ const arrowLeftSvg = import(/* webpackChunkName: "svg-sprite" */ '../media/arrow
 const ArrowLeftIcon = forwardRef((props, ref) => <Icon ref={ ref } { ...props } svg={ arrowLeftSvg } />);
 
 export { ArrowLeftIcon };
-
-export default Icon;
 ```
 
 Then, just import the recently created icons wherever you need.
 
 ```js
-import { ArrowLeftIcon } from '../..//shared/modules';
+import { ArrowLeftIcon } from '../shared/modules/react-icons';
 
-// (...)
-
-render() {
+const MyComponent = ({ children }) => (
     <div>
-        <ArrowLeftIcon className={ styles.arrowLeft } />
+        { children }
+        <ArrowLeftIcon />
     </div>
-}
+);
 ```
 
 Also, don't forget to export the icons on your `shared/modules/index.js`. Just add this line:
@@ -83,7 +80,6 @@ Type: `string` | Required: `false`
 
 A className to apply to the component.
 
-
 ## Tests
 
 ```sh
@@ -95,7 +91,7 @@ $ npm test -- --watch # during development
 
 A demo [Next.js](https://nextjs.org/) project is available in the [`/demo`](./demo) folder so you can try out this component.
 
-First, build the `{react-icon}` project with:
+First, build the `react-icon` project with:
 
 ```sh
 $ npm run build
