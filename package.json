@@ -1,6 +1,6 @@
 {
   "name": "@moxy/react-icon",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A component to render svg icons.",
   "main": "lib/index.js",
   "module": "es/index.js",
