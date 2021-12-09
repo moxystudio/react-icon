@@ -19,7 +19,7 @@
     "@moxy/react-icon": "file:..",
     "@moxy/next-common-files": "^1.2.2",
     "@moxy/next-webpack-oneof": "^1.0.2",
-    "next": "^9.2.0",
+    "next": "^11.1.3",
     "next-compose-plugins": "^2.2.0",
     "onchange": "^6.1.0",
     "react": "^16.12.0",
